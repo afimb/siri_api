@@ -97,6 +97,9 @@
 	<message name="StopMonitoringAnswer">
 		<part name="parameters" element="siriWS:GetStopMonitoringResponse"/>
 	</message>
+	<message name="StopMonitoringMultipleAnswer">
+		<part name="parameters" element="siriWS:GetMultipleStopMonitoringResponse"/>
+	</message>
     <message name="StopMonitoringError">
         <part name="SiriError" element="siri:ServiceDeliveryErrorCondition"/>
     </message>
@@ -242,7 +245,7 @@
 		</operation>
 		<operation name="GetMultipleStopMonitoring">
 			<input message="siriWS:StopMonitoringMultipleRequest"/>
-			<output message="siriWS:StopMonitoringAnswer"/>
+			<output message="siriWS:StopMonitoringMultipleAnswer"/>
             <fault name="FaultName" message="siriWS:StopMonitoringError"/>
 		</operation>
 		<operation name="GetVehicleMonitoring">

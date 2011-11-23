@@ -154,6 +154,7 @@
          <xsd:element name="GetStopMonitoring" type="StopMonitoringType" />
          <xsd:element name="GetMultipleStopMonitoring" type="StopMonitoringMultipleType" />
          <xsd:element name="GetStopMonitoringResponse" type="StopMonitoringAnswerType" />
+         <xsd:element name="GetMultipleStopMonitoringResponse" type="StopMonitoringAnswerType" />
 
          <!-- StopTimetable -->
          <xsd:complexType name="StopTimetableRequestType">

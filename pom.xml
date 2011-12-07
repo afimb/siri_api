@@ -19,7 +19,7 @@
         <repository>
             <id>siri-repository</id>
             <name>Siri Repository</name>
-            <url>file:///var/lib/hudson/releases</url>
+            <url>file:///var/lib/jenkins/releases</url>
         </repository>
     </distributionManagement>
 

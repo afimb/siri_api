@@ -3,9 +3,9 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>net.dryade.siri</groupId>
+    <groupId>irys</groupId>
     <artifactId>siri-api</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
 
     <name>siri-api</name>
@@ -28,7 +28,7 @@
         <dependency>
             <groupId>org.apache.xmlbeans</groupId>
             <artifactId>xmlbeans</artifactId>
-            <version>2.4.0</version>
+            <version>2.6.0</version>
         </dependency>
     </dependencies>
   
@@ -49,6 +49,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>xmlbeans-maven-plugin</artifactId>                
+			    <version>2.3.3</version>
                 <executions>
                     <execution>
                         <goals>
@@ -58,6 +59,7 @@
                 </executions>
                 <inherited>true</inherited>
                 <configuration>
+		    <defaultXmlConfigDir>src/main/xsdconfig</defaultXmlConfigDir>
                     <memoryMaximumSize>1024m</memoryMaximumSize>
                     <schemaDirectory>src/main/resources/wsdl</schemaDirectory>
                 </configuration>

@@ -1,0 +1,104 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>irys</groupId>
+		<artifactId>siri-api</artifactId>
+		<version>2.0.0</version>
+	</parent>
+	<artifactId>siri_wsdl</artifactId>
+	<packaging>jar</packaging>
+	<name>Siri Web Service</name>
+	<dependencies>
+
+		<!-- Default Dependencies -->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.xml.ws</groupId>
+			<artifactId>jaxws-api</artifactId>
+		</dependency>
+
+
+		<!-- Irys Dependencies -->
+		<dependency>
+			<groupId>irys</groupId>
+			<artifactId>siri_xsd</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<resources>
+			<resource>
+				<targetPath>wsdl</targetPath>
+				<directory>src/wsdl</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+			</resource>
+		</resources>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.jvnet.jax-ws-commons</groupId>
+										<artifactId>jaxws-maven-plugin</artifactId>
+										<versionRange>[2.1,)</versionRange>
+										<goals>
+											<goal>wsimport</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.jvnet.jax-ws-commons</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<id>generate-sources</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<wsdlLocation>/wsdl/siri_wsProducer_wsConsumer-Document.wsdl</wsdlLocation>
+							<wsdlFiles>
+								<wsdlFile>siri_wsProducer_wsConsumer-Document.wsdl</wsdlFile>
+							</wsdlFiles>
+							<vmArgs>
+								<vmArg>-Djavax.xml.accessExternalDTD=all</vmArg>
+								<vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+							</vmArgs>
+							<xjcArgs>
+								<xjcArg>-npa</xjcArg>
+								<xjcArg>-b</xjcArg>
+								<xjcArg>${basedir}/src/main/resources/jaxb/siri.episode</xjcArg>
+							</xjcArgs>
+						</configuration>
+						<goals>
+							<goal>wsimport</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

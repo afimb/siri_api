@@ -41,7 +41,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<schemaFiles>siri.xsd,siri-FR-IDF-Extensions-2.4.xsd</schemaFiles>
+					<schemaFiles>siri.xsd,siri-FR-IDF-Extensions-2.4.xsd,siri-IDF-Message.xsd</schemaFiles>
 					<arguments>-episode ${basedir}/siri.episode -extension -b ${basedir}/src/main/xsd/bindings.xml </arguments>
 				</configuration>
 			</plugin>
